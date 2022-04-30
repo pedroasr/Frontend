@@ -1,0 +1,12 @@
+.Gender {
+    display: flex;
+    border: black solid medium;
+    padding: 1.5rem;
+    margin: 2rem;
+}
+
+.GenderList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}

@@ -7,7 +7,7 @@ type GenderProps = {
     gender: string;
 };
 export function Gender({ gender }: GenderProps) {
-    const path = `filter?gender=${gender}`;
+    const path = `/filter/${gender}`;
     return (
         <Link className={'Gender'} to={path}>
             {gender}
@@ -19,17 +19,17 @@ export function GenderList(){
     return (
         <div>
             <div className='gender-list-header'>Géneros</div>
-            <ul>
-                <li>
-                    <Gender gender='Drama'/>
-                </li>
-                <li>
-                    <Gender gender='Comedia'/>
-                </li>
-                <li>
-                    <Gender gender='Thriller'/>
-                </li>
-            </ul>
+                    <ul>
+                        <li>
+                            <Gender gender='Drama'/>
+                        </li>
+                        <li>
+                            <Gender gender='Comedia'/>
+                        </li>
+                        <li>
+                            <Gender gender='Thriller'/>
+                        </li>
+                    </ul>
         </div>
     );
 }

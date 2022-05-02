@@ -88,7 +88,7 @@ export function MovieListFilter(){
     
     return(
 <div className='App'>
-                <h1 className={'Title'}>lavideotecadelvago</h1>
+                <h1 className={'Title'}>lavideotecadelvago.com</h1>
                     <div className={'Body'}>
                         <div><GenderList /></div>
                         <div>{listMoviesFilter}</div>

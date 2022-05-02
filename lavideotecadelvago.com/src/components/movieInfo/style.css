@@ -1,0 +1,11 @@
+.MovieInfo {
+    position: relative;
+    border-collapse: separate;
+    border-spacing: 0;
+    cursor: auto;
+    padding: 0px;
+    margin: 0px;
+    width: 180px;
+    text-align: center;
+    position: relative;
+}

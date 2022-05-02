@@ -13,14 +13,16 @@ function App(){
                 <h1 className={'Title'}>lavideotecadelvago</h1>
                     <div className={'Body'}>
                         <table className='main-content-table'>
-                            <tr>
-                                <td id='gender-list'>
-                                    <GenderList/>
-                                </td>
-                                <td id='movie-list'>
-                                    <MovieList />
-                                </td>
-                            </tr>
+                            <tbody>
+                                <tr>
+                                    <td id='gender-list'>
+                                        <GenderList />
+                                    </td>
+                                    <td id='movie-list'>
+                                        <MovieList />
+                                    </td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
             </div>

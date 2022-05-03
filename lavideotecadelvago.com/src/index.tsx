@@ -11,6 +11,7 @@ ReactDOM.render(
     <BrowserRouter>
         <Routes>
             <Route path='/' element={<App />}/>
+            <Route path='/:page' element={<App />}/>
             <Route path='/movie/:id' element={<MovieInfo />}/>
             <Route path='/filter/:gender' element={<MovieListFilter />}/>
         </Routes>

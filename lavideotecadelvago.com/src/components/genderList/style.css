@@ -1,12 +1,11 @@
 .Gender {
     display: flex;
-    border: black solid medium;
-    padding: 1.5rem;
-    margin: 2rem;
 }
 
 .GenderList {
+    flex-direction: row;
     list-style: none;
-    margin: 0;
-    padding: 0;
+    margin: 2;
+    padding: 2;
 }
+

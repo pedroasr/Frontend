@@ -17,19 +17,17 @@ export function Gender({ gender }: GenderProps) {
 
 export function GenderList(){
     return (
-        <div>
+        <div className='gender-list'>
             <div className='gender-list-header'>Géneros</div>
-                    <ul>
-                        <li>
+                 <div>
                             <Gender gender='Drama'/>
-                        </li>
-                        <li>
+                            </div>
+                        <div>
                             <Gender gender='Comedia'/>
-                        </li>
-                        <li>
+                            </div>
+                        <div>
                             <Gender gender='Thriller'/>
-                        </li>
-                    </ul>
+                            </div>
         </div>
     );
 }

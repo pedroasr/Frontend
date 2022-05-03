@@ -16,7 +16,7 @@ export function Movie(props: MovieProps) {
         <div>
             <div>
                 <Link to={`/movie/${props.id}`}>
-                    <img src={props.image} alt={props.name} width='160' height='227'/>
+                    <img src={props.image} alt={props.name} width='160px' height='227px'/>
                 </Link>
             </div>
             <div>
@@ -27,16 +27,28 @@ export function Movie(props: MovieProps) {
 }
 
 export function MovieList(){
+    const param = useParams();
     const [isLoading, setIsLoading] = useState(true);
     const [movieData, setMovieData] = useState([{id:0, image:'', name:''}]);
+    const [movieNext, setMovieNext] = useState('');
+    const [moviePrev, setMoviePrev] = useState('');
+    if (!!param.page){
+        var path =  `https://api.lavideotecadelvago.teamcamp.ovh/movies?page=${param.page}`;
+    }
+    else {
+        path = 'https://api.lavideotecadelvago.teamcamp.ovh/movies?page=1';
+    }
 
     React.useEffect(() => {
-        fetch(`http://localhost:3099/movies`)
+        fetch(path)
         .then(response => response.json())
         .then(data => {
             setIsLoading(false);
-            setMovieData(data.results)})
-    }, []);
+            setMovieData(data.results)
+            setMovieNext(data.next)
+            setMoviePrev(data.prev)
+        })
+    }, [param, path]);
 
     if (isLoading){
         return (
@@ -47,16 +59,56 @@ export function MovieList(){
     }
 
     const listMovies = movieData.map(data => 
-        <div key={data.id}>
+        <div key={data.id} className={`div${data.id}`}>
             <Movie id={data.id} image={data.image} name={data.name}/>
         </div>
     );
+     
+        if (!!movieNext && !!moviePrev){
+            return(
+                <div>
+                    <div className='div-list'>
+                        {listMovies}
+                    </div>
+                    <div className='next-link'>
+                        <Link to={`/${movieNext.slice(-1)}`}>Siguiente página</Link>
+                    </div>
+                    <div className='prev-link'>
+                        <Link to={`/${moviePrev.slice(-1)}`}>Página anterior</Link>
+                    </div>
+                </div>
+            );
+        }
+        if (!!movieNext){
+            return(
+                <div>
+                    <div className='div-list'>
+                        {listMovies}
+                    </div>
+                    <div className='next-link'>
+                        <Link to={`/${movieNext.slice(-1)}`}>Siguiente página</Link>
+                    </div>
+                </div>
+            );
+        }
+        if (!!moviePrev){
+            return(
+                <div>
+                    <div className='div-list'>
+                        {listMovies}
+                    </div>
+                    <div className='prev-link'>
+                        <Link to={`/${moviePrev.slice(-1)}`}>Página anterior</Link>
+                    </div>
+                </div>
+            );
+        }
     
-    return(
-        <div>
-            {listMovies}
-        </div>
-    );
+        return(
+            <div className='div-list'>
+                {listMovies}
+            </div>
+        );
 }
 
 export function MovieListFilter(){
@@ -65,12 +117,14 @@ export function MovieListFilter(){
     const [movieData, setMovieData] = useState([{id:0, image:'', name:''}]);
 
     React.useEffect(() => {
-        fetch(`http://localhost:3099/movies/filter?gender=${param.gender}`)
+        fetch(`https://api.lavideotecadelvago.teamcamp.ovh/movies/filter?gender=${param.gender}`)
         .then(response => response.json())
         .then(data => {
             setIsLoading(false);
-            setMovieData(data.results)})
-    }, [param]);
+            setMovieData(data.results)
+    }) 
+},[param]);
+
 
     if (isLoading){
         return (
@@ -87,14 +141,15 @@ export function MovieListFilter(){
     );
     
     return(
-<div className='App'>
-                <h1 className={'Title'}>lavideotecadelvago.com</h1>
+        <div className='App'>
+                <h1 className={'Title'}><Link to='/'>lavideotecadelvago.com</Link></h1>
                     <div className={'Body'}>
                         <div><GenderList /></div>
-                        <div>{listMoviesFilter}</div>
+                        <div className='div-list'>{listMoviesFilter}</div>
                     </div>
-            </div>
+        </div>
     );
 }
+
 
 export default MovieList;

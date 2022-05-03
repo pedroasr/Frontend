@@ -9,3 +9,7 @@
     text-align: center;
     position: relative;
 }
+
+.main-div{
+    float: left;
+}

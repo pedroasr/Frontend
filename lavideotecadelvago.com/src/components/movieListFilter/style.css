@@ -1,0 +1,23 @@
+.Movie {
+    display: flex;
+    border: 5px;
+    vertical-align: top;
+    padding: 3px 3px 3px 0px;
+}
+
+.div-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+}
+
+.next-link{
+    text-align: right;
+}
+
+.prev-link{
+    text-align: left;
+}
+        

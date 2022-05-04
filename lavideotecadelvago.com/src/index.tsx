@@ -5,7 +5,7 @@ import App from './components/app';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import MovieInfo from './components/movieInfo';
-import { MovieListFilter } from './components/movieList';
+import AppFilter from './components/movieListFilter';
 
 ReactDOM.render(
     <BrowserRouter>
@@ -13,7 +13,8 @@ ReactDOM.render(
             <Route path='/' element={<App />}/>
             <Route path='/:page' element={<App />}/>
             <Route path='/movie/:id' element={<MovieInfo />}/>
-            <Route path='/filter/:gender' element={<MovieListFilter />}/>
+            <Route path='/filter/:gender' element={<AppFilter />}/>
+            <Route path='/filter/:gender/:page' element={<AppFilter />}/>
         </Routes>
     </BrowserRouter>,
     document.getElementById('root')

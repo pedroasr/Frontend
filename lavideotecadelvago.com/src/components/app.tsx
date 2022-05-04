@@ -10,7 +10,6 @@ function App(){
     return(
             <div className='App'>
                 <h1 className={'Title'}><Link to='/'>lavideotecadelvago.com</Link></h1>
-                
                     <div className={'Body'}>
                         <div><GenderList /></div>
                         <div><MovieList /></div>

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import GenderList from '../genderList';
+import Header from '../header';
 import { Movie } from '../movieList';
 
 import './style.css';
@@ -13,10 +14,10 @@ function MovieListFilter(){
     const [movieNext, setMovieNext] = useState('');
     const [moviePrev, setMoviePrev] = useState('');
     if (!!param.page){
-        var path =  `https://api.lavideotecadelvago.teamcamp.ovh/movies/filter?gender=${param.gender}&page=${param.page}`;
+        var path =  `https://api.lavideotecadelvago.teamcamp.ovh/filter?gender=${param.gender}&page=${param.page}`;
     }
     else {
-        path = `https://api.lavideotecadelvago.teamcamp.ovh/movies/filter?gender=${param.gender}&page=1`;
+        path = `https://api.lavideotecadelvago.teamcamp.ovh/filter?gender=${param.gender}&page=1`;
     }
 
     React.useEffect(() => {
@@ -95,7 +96,7 @@ function MovieListFilter(){
 export function AppFilter(){
     return(
         <div className='App'>
-            <h1 className={'Title'}><Link to='/'>lavideotecadelvago.com</Link></h1>
+            <Header/>
                 <div className={'Body'}>
                     <div><GenderList /></div>
                     <div><MovieListFilter /></div>

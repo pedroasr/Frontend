@@ -1,9 +1,4 @@
-.Movie {
-    display: flex;
-    border: 5px;
-    vertical-align: top;
-    padding: 3px 3px 3px 0px;
-}
+
 
 .div-list {
     display: grid;

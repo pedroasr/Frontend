@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import Header from '../header';
 
 import './style.css';
 
@@ -10,7 +11,7 @@ export function MovieInfo() {
     const [movieData, setMovieData] = useState({image:'', name:'', description:'', gender:'', release_year:0, rate:0});
 
     React.useEffect(() => {
-        fetch(`https://api.lavideotecadelvago.teamcamp.ovh/movies/movie?id=${param.id}`)
+        fetch(`https://api.lavideotecadelvago.teamcamp.ovh/movie?id=${param.id}`)
         .then(response => response.json())
         .then(data => {
             setIsLoading(false);
@@ -26,29 +27,29 @@ export function MovieInfo() {
     }
     return ( 
         <div className='App'>
-        <h1 className={'Title'}><Link to='/'>lavideotecadelvago.com</Link></h1> 
-        <div className={'Body'}> 
-        <div className='main-div'>
-            <h1 id='main-title'>{movieData.name}</h1>
-                <div>
-                    <div>
-                        <img itemProp='image' src={movieData.image} alt={movieData.name} width='240' height='340'/>
-                    </div>
-                </div>
-                    <dl className='movieInfo'>
-                        <dt>Puntuación</dt>
-                        <dd>{movieData.rate}</dd>
-                        <dt>Título original</dt>
-                        <dd>{movieData.name}</dd>
-                        <dt>Año</dt>
-                        <dd>{movieData.release_year}</dd>
-                        <dt>Género</dt>
-                        <dd>{movieData.gender}</dd>
-                        <dt>Sinopsis</dt>
-                        <dd>{movieData.description}</dd>
-                    </dl>
-                    </div>        
-        </div>
+            <Header/>
+            <div className={'Body'}> 
+                <div className='main-div'>
+                    <h1 id='main-title'>{movieData.name}</h1>
+                        <div>
+                            <div>
+                                <img itemProp='image' src={movieData.image} alt={movieData.name} width='240' height='340'/>
+                            </div>
+                        </div>
+                            <dl className='movieInfo'>
+                                <dt>Puntuación</dt>
+                                <dd>{movieData.rate}</dd>
+                                <dt>Título original</dt>
+                                <dd>{movieData.name}</dd>
+                                <dt>Año</dt>
+                                <dd>{movieData.release_year}</dd>
+                                <dt>Género</dt>
+                                <dd>{movieData.gender}</dd>
+                                <dt>Sinopsis</dt>
+                                <dd>{movieData.description}</dd>
+                            </dl>
+                </div>        
+            </div>
         </div> 
     );
 }

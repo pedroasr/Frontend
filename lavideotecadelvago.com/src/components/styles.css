@@ -2,13 +2,7 @@
     display: flex;
     flex-direction: column;
   }
-  
-.Title {
-    display: flex;
-    justify-content: center;
-    background: linear-gradient(336deg, #D4D81C 0%, #fff 100%);
-  }
-  
+
 .Body {
     display: flex;
     flex: 1;
@@ -17,6 +11,4 @@
     background: -webkit-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
     background: linear-gradient(to bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 );
-    
-    
   }

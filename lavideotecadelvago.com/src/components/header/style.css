@@ -1,0 +1,29 @@
+.header{
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    background: linear-gradient(336deg, #D4D81C 0%, #fff 100%);
+}
+
+.pad{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+.top-title{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+.login-signup{
+    display: flex;
+    flex: 1;
+    justify-content: right;
+}
+
+.post-header{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

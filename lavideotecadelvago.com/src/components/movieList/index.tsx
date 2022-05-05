@@ -32,10 +32,10 @@ export function MovieList(){
     const [movieNext, setMovieNext] = useState('');
     const [moviePrev, setMoviePrev] = useState('');
     if (!!param.page){
-        var path =  `https://api.lavideotecadelvago.teamcamp.ovh/movies?page=${param.page}`;
+        var path =  `https://api.lavideotecadelvago.teamcamp.ovh/?page=${param.page}`;
     }
     else {
-        path = 'https://api.lavideotecadelvago.teamcamp.ovh/movies?page=1';
+        path = 'https://api.lavideotecadelvago.teamcamp.ovh/?page=1';
     }
 
     React.useEffect(() => {

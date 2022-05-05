@@ -21,6 +21,8 @@
     display: flex;
     flex: 1;
     justify-content: right;
+    margin-top: 10px;
+    margin-right: 10px;
 }
 
 .post-header{

@@ -1,11 +1,10 @@
-
-
 .div-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 5px;
     grid-row-gap: 5px;
+    margin-top: 20px;
 }
 
 .next-link{

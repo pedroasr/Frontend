@@ -2,10 +2,10 @@ import * as React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../header';
-
-import './style.css';
+import { UserContext } from '../user/UserContext';
 
 export function Login(){
+    const { loginUser } = React.useContext(UserContext);
     const nav = useNavigate();
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
@@ -26,7 +26,7 @@ export function Login(){
         } else {
           setError(false);
           (async () => {
-            await fetch('https://api.lavideotecadelvago.teamcamp.ovh/login', {
+            const login = await fetch('https://api.lavideotecadelvago.teamcamp.ovh/login', {
               method: 'POST',
               headers: {
                 'Accept': 'application/json',
@@ -34,6 +34,8 @@ export function Login(){
               },
               body: JSON.stringify({username: name, password: password})
             });
+            const user = await login.json();
+            loginUser({ id: user.id, username: user.username })
             nav('/');
           
           })();
@@ -55,16 +57,11 @@ export function Login(){
     return (
         <div>
         <Header />
-        <div className="form">
+        <div className="Body">
           <div>
             <h3>Inicia Sesión</h3>
-          </div>
-     
-          <div className="messages">
             {errorMessage()}
-          </div>
-     
-          <form>
+            <form>
             <label className="label">Username</label>
             <input onChange={handleName} className="input"
               value={name} type="text" />
@@ -77,6 +74,7 @@ export function Login(){
               Inicia sesión
             </button>
           </form>
+          </div>
         </div>
         </div>
       );

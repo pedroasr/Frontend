@@ -3,8 +3,6 @@ import { useState } from 'react';
 import Header from '../header';
 import { useNavigate } from "react-router-dom"
 
-import './style.css';
-
 export function Signup(){
     const nav = useNavigate();
     const [name, setName] = useState('');
@@ -56,17 +54,11 @@ export function Signup(){
     return (
         <div>
         <Header />
-        <div className="form">
+        <div className="Body">
           <div>
             <h3>Registrate</h3>
-          </div>
-     
-          <div className="messages">
             {errorMessage()}
-
-          </div>
-     
-          <form>
+            <form>
             <label className="label">Username</label>
             <input onChange={handleName} className="input"
               value={name} type="text" />
@@ -79,6 +71,7 @@ export function Signup(){
               Continuar
             </button>
           </form>
+          </div>
         </div>
         </div>
       );

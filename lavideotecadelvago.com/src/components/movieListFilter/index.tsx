@@ -53,10 +53,10 @@ function MovieListFilter(){
                     {listMoviesFilter}
                 </div>
                 <div className='next-link'>
-                    <Link to={`/${movieNext.slice(-1)}`}>Siguiente página</Link>
+                    <Link to={`/filter/${param.gender}/${movieNext.slice(-1)}`}>Siguiente página</Link>
                 </div>
                 <div className='prev-link'>
-                    <Link to={`/${moviePrev.slice(-1)}`}>Página anterior</Link>
+                    <Link to={`/filter/${param.gender}/${movieNext.slice(-1)}`}>Página anterior</Link>
                 </div>
             </div>
         );
@@ -68,7 +68,7 @@ function MovieListFilter(){
                     {listMoviesFilter}
                 </div>
                 <div className='next-link'>
-                    <Link to={`/${movieNext.slice(-1)}`}>Siguiente página</Link>
+                    <Link to={`/filter/${param.gender}/${movieNext.slice(-1)}`}>Siguiente página</Link>
                 </div>
             </div>
         );
@@ -80,7 +80,7 @@ function MovieListFilter(){
                     {listMoviesFilter}
                 </div>
                 <div className='prev-link'>
-                    <Link to={`/${moviePrev.slice(-1)}`}>Página anterior</Link>
+                    <Link to={`/filter/${param.gender}/${movieNext.slice(-1)}`}>Página anterior</Link>
                 </div>
             </div>
         );
